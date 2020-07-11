@@ -1,0 +1,151 @@
+<div class = "card my-5">
+    <div class = "card-body">
+        <div *ngIf = "cpu" class = "edit-form">
+            <h2><p>Cpu edit</p></h2>
+
+            <form #forms= "ngForm" (submit)= "updateCpu()">
+
+                <div class = "form-group">
+                    <div class = "col">
+                        <label for = "brand">Brand:</label>
+                    </div>
+                    <div class = "col-4">
+                        <input
+                            type = "text"
+                            class = "form-control"
+                            id = "brand"
+                            [(ngModel)] = "cpu.brand"
+                            name = "brand"
+                        > 
+                    </div>
+                </div>
+
+                <div class = "form-group">
+                    <div class = "col">
+                        <label for = "model">Model:</label>
+                    </div>
+                    <div class = "col-4">
+                        <input
+                            type = "text"
+                            class = "form-control"
+                            id = "model"
+                            [(ngModel)] = "cpu.model"
+                            name = "model"
+                        > 
+                    </div>
+                </div>
+
+                <div class = "form-group">
+                    <div class = "col">
+                        <label for = "socket">Socket:</label>
+                    </div>
+                    <div class = "col-4">
+                        <select 
+                            class = "form-control" 
+                            name = "socket"
+                            [(ngModel)] = "cpu.socket"
+                            id = "socket"
+                        >
+                            <option *ngFor = "let socket of sockets" [ngValue]= "socket">{{ socket.name }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class = "form-group">
+                    <div class = "col">
+                        <label for = "clockspeed">Clock speed:</label>
+                    </div>
+                    <div class = "col-4">
+                        <div class = "input-group">
+                            <input
+                                type = "number"
+                                step="0.1"
+                                class = "form-control"
+                                id = "clockspeed"
+                                [(ngModel)] = "cpu.clockspeed"
+                                name = "clockspeed"
+                            > 
+                            <p class = "input-group-text"> GHz </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "form-group">
+                    <div class = "col">
+                        <label for = "numberOfCores">Number of cores:</label>
+                    </div>
+                    <div class = "col-4">
+                        <input
+                            type = "number"
+                            class = "form-control"
+                            id = "numberOfCores"
+                            [(ngModel)] = "cpu.numberOfCores"
+                            name = "numberOfCores"
+                        > 
+                    </div>
+                </div>
+
+                <div class = "form-group">
+                    <div class = "col">
+                        <label for = "numberOfThreads">Number of threads:</label>
+                    </div>
+                    <div class = "col-4">
+                        <input
+                            type = "number"
+                            class = "form-control"
+                            id = "numberOfThreads"
+                            [(ngModel)] = "cpu.numberOfThreads"
+                            name = "numberOfThreads"
+                        > 
+                    </div>
+                </div>
+
+                <div class = "form-group">
+                    <div class = "col">
+                        <label for = "tdp">TDP:</label>
+                    </div>
+                    <div class = "col-4">
+                        <div class = "input-group">
+                            <input
+                                type = "number"
+                                class = "form-control"
+                                id = "tdp"
+                                [(ngModel)] = "cpu.tdp"
+                                name = "tdp"
+                            >
+                            <p class = "input-group-text"> W </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "form-group">
+                    <div class = "col">
+                        <label for = "price">Price:</label>
+                    </div>
+                    <div class = "col-4">
+                        <div class = "input-group">
+                            <input
+                                type = "number"
+                                step = "0.01"
+                                class = "form-control"
+                                id = "price"
+                                [(ngModel)] = "cpu.price"
+                                name = "price"
+                            > 
+                            <p class = "input-group-text"> € </p>
+                        </div>
+                    </div>
+                </div>
+                <div class = "form-group row">
+                    <div class = "col-2">
+                        <button class="btn btn-danger" style = "margin-left: 20px" routerLink="/cpus/{{ cpu?.id }}">Return</button>
+                    </div>
+                    <div class = "col-2">
+                        <button class = "btn btn-success float-right" type="submit">Update</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

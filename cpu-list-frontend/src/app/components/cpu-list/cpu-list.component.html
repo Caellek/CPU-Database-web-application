@@ -1,0 +1,25 @@
+<div class = "card my-5">
+    <div class = "card-body">
+        <h2><p>CPUs list</p></h2>
+        <table class = "table">
+            <thead class = "thead-dark">
+                <tr>
+                    <th scope = "col">#</th>
+                    <th scope = "col">Brand</th>
+                    <th scope = "col">Model</th>
+                    <th scope = "col">Socket</th>
+                    <th scope = "col">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let cpu of cpus">
+                    <td>{{ cpu.id }}</td>
+                    <td>{{ cpu.brand }}</td>
+                    <td>{{ cpu.model }}</td>
+                    <td>{{ cpu.socket.name }}</td>
+                    <td><button class= "btn btn-primary" routerLink="/cpus/{{ cpu.id }}">Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

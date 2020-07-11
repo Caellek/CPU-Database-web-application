@@ -1,0 +1,42 @@
+<div class = "card my-5">
+    <div class = "card-body"  *ngIf="cpu">
+        <h2><p>{{ cpu.brand }} {{ cpu.model }} - details:</p></h2>
+        <table class = "table">
+            <thead class = "thead-dark">
+                <tr>
+                    <th scope = "col">#</th>
+                    <th scope = "col">Brand</th>
+                    <th scope = "col">Model</th>
+                    <th scope = "col">Socket</th>
+                    <th scope = "col">Clock Speed</th>
+                    <th scope = "col">Number of Cores</th>
+                    <th scope = "col">Number of Threads</th>
+                    <th scope = "col">TDP</th>
+                    <th scope = "col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ cpu.id }}</td>
+                    <td>{{ cpu.brand }}</td>
+                    <td>{{ cpu.model }}</td>
+                    <td>{{ cpu.socket.name }}</td>
+                    <td>{{ cpu.clockspeed }} GHz</td>
+                    <td>{{ cpu.numberOfCores }}</td>
+                    <td>{{ cpu.numberOfThreads }}</td>
+                    <td>{{ cpu.tdp }} W</td>
+                    <td>{{ cpu.price }} €</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class = "row">
+            <div class = "col-1">
+                <button class="btn btn-danger" routerLink="/cpus">Return</button>
+            </div>
+            <div class = "col-1">
+                <button class="btn btn-primary" routerLink="/cpus/{{ cpu?.id }}/edit">Edit</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
